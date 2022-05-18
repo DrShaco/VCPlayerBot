@@ -41,7 +41,7 @@ from pyrogram.errors import (
 admin_filter=filters.create(is_admin)   
 
 
-@Client.on_message(filters.command(["export", f"export@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(["vexport", f"vexport@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def export_play_list(client, message: Message):
     if not Config.playlist:
         k=await message.reply_text("Playlist is Empty")
