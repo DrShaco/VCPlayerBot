@@ -53,10 +53,10 @@ IST = pytz.timezone(Config.TIME_ZONE)
 if Config.DATABASE_URI:
     from utils import db
 
-HOME_TEXT = "<b>Hey  [{}](tg://user?id={}) 🙋‍♂️\n\nIam A Bot Built To Play or Stream Videos In Telegram VoiceChats.\nI Can Stream Any YouTube Video Or A Telegram File Or Even A YouTube Live.</b>"
+HOME_TEXT = "<b>Hey  [{}](tg://user?id={}) 🙋‍♂️\n\nIDOLSHOW.XYZ - Xem gái Live show hàng ngọt nước miễn phí 100%\n\n🔜 Link 1: https://idolshow.xyz\n🔜 Link 2: https://xemlive.xyz\n\nKênh sex: t.me/nhatky18</b>"
 admin_filter=filters.create(is_admin) 
 
-@Client.on_message(filters.command(['start', f"start@{Config.BOT_USERNAME}"]))
+@Client.on_message(filters.command(['vstart', f"vstart@{Config.BOT_USERNAME}"]))
 async def start(client, message):
     if len(message.command) > 1:
         if message.command[1] == 'help':
@@ -129,12 +129,8 @@ async def start(client, message):
         return
     buttons = [
         [
-            InlineKeyboardButton('⚙️ Update Channel', url='https://t.me/subin_works'),
-            InlineKeyboardButton('🧩 Source', url='https://github.com/subinps/VCPlayerBot')
-        ],
-        [
-            InlineKeyboardButton('👨🏼‍🦯 Help', callback_data='help_main'),
-            InlineKeyboardButton('🗑 Close', callback_data='close'),
+            InlineKeyboardButton('Tải Chichlive ✔', url='https://idolshow.xyz'),
+            InlineKeyboardButton('Tải 999Live ✔', url='https://xemlive.xyz'),
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -143,7 +139,7 @@ async def start(client, message):
 
 
 
-@Client.on_message(filters.command(["help", f"help@{Config.BOT_USERNAME}"]))
+@Client.on_message(filters.command(["vhelp", f"vhelp@{Config.BOT_USERNAME}"]))
 async def show_help(client, message):
     reply_markup=InlineKeyboardMarkup(
         [
@@ -184,16 +180,12 @@ async def show_help(client, message):
         disable_web_page_preview=True
         )
     #await delete_messages([message])
-@Client.on_message(filters.command(['repo', f"repo@{Config.BOT_USERNAME}"]))
+@Client.on_message(filters.command(['vrepo', f"vrepo@{Config.BOT_USERNAME}"]))
 async def repo_(client, message):
     buttons = [
         [
-            InlineKeyboardButton('🧩 Repository', url='https://github.com/subinps/VCPlayerBot'),
-            InlineKeyboardButton('⚙️ Update Channel', url='https://t.me/subin_works'),     
-        ],
-        [
-            InlineKeyboardButton("🎞 How to Deploy", url='https://youtu.be/mnWgZMrNe_0'),
-            InlineKeyboardButton('🗑 Close', callback_data='close'),
+            InlineKeyboardButton('Tải Chichlive ✔', url='https://idolshow.xyz'),
+            InlineKeyboardButton('Tải 999Live ✔', url='https://xemlive.xyz'),
         ]
     ]
     await message.reply("<b>The source code of this bot is public and can be found at <a href=https://github.com/subinps/VCPlayerBot>VCPlayerBot.</a>\nYou can deploy your own bot and use in your group.\n\nFeel free to star☀️ the repo if you liked it 🙃.</b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
